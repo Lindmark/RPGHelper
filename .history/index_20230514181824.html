@@ -9,8 +9,8 @@
             var subjectObject = {
               "Eon": {
                 "Slumptabeller": ["Träfftabeller", "Skador", "Händelser"],
-                "Ark": ["Karaktärsblad", "Magiblad"],
-                "Tärningsgenerator":[]
+                "Karaktärsblad": ["Borders", "Margins", "Backgrounds", "Float"],
+                "Tärningsgenerator": ["Variables", "Operators", "Functions", "Conditions"]    
               },
               "Back-end": {
                 "PHP": ["Variables", "Strings", "Arrays"],
@@ -18,9 +18,9 @@
               }
             }
             window.onload = function() {
-              var subjectSel = document.getElementById("Spelsystem");
-              var topicSel = document.getElementById("Verktyg");
-              var chapterSel = document.getElementById("Verktygskategori");
+              var subjectSel = document.getElementById("subject");
+              var topicSel = document.getElementById("topic");
+              var chapterSel = document.getElementById("chapter");
               for (var x in subjectObject) {
                 subjectSel.options[subjectSel.options.length] = new Option(x, x);
               }
@@ -43,12 +43,6 @@
                 }
               }
             }
-            function openNav() {
-              document.getElementById("sidenav").style.width = "250px";
-            }
-            function closeNav() {
-              document.getElementById("sidenav").style.width = "0";
-            }
             </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,25 +55,18 @@
         <header>
             
         </header>
-        <button class="openbtn" onclick="openNav()">☰</button>
-
-        <div class="sidenav" id="sideNav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="sidenav">
             <a href="#about">Hem</a>
             <a href="#services"></a>
             <a href="#clients">Clients</a>
             <a href="#contact">Contact</a>
             <form name="form1" id="form1" action="/action_page.php">
-                Spelsystem: <select name="subject" id="Spelsystem">
-                    <option value="" selected="selected">Välj spelsystem</option>
+                Spelsystem: <select name="subject" id="subject">
+                    <option value="" selected="selected">Select subject</option>
                   </select>
                   <br><br>
-                Verktyg: <select name="topic" id="Verktyg">
-                    <option value="" selected="selected">Välj spelsystem först</option>
-                  </select>
-                  <br><br>
-                  Verktygskagetgori: <select name="topic" id="Verktygskategori">
-                    <option value="" selected="selected">Välj Verktyg</option>
+                verktyg: <select name="topic" id="topic">
+                    <option value="" selected="selected">Please select subject first</option>
                   </select>
                   <br><br>
                   <input type="submit" value="Submit">  
