@@ -19,7 +19,28 @@
         </header>
         <button class="openbtn" onclick="openNav()">☰</button>
 
-        <iframe src="sidebar.html" id="sideNav" class="sidenav"></iframe>
+        <div class="sidenav" id="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="#about">Hem</a>
+            <a href="#services"></a>
+            <a href="#clients">Clients</a>
+            <a href="#contact">Contact</a>
+            <form name="form1" id="form1" action="/action_page.php">
+                Spelsystem: <select name="subject" id="Spelsystem">
+                    <option value="" selected="selected">Välj spelsystem</option>
+                  </select>
+                  <br><br>
+                Verktyg: <select name="topic" id="Verktyg">
+                    <option value="" selected="selected">Välj spelsystem först</option>
+                  </select>
+                  <br><br>
+                  Verktygskagetgori: <select name="topic" id="Verktygskategori">
+                    <option value="" selected="selected">Välj Verktyg</option>
+                  </select>
+                  <br><br>
+                  <input type="submit" value="Submit">  
+                </form>
+          </div>
         <div class="welcomeBox">
             <p>
                 Welcome
