@@ -5,6 +5,45 @@
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
+        <script>
+            var subjectObject = {
+              "Eon": {
+                "Slumptabeller": ["Träfftabeller", "Skador", "Händelser"],
+                "Karaktärsblad": ["Borders", "Margins", "Backgrounds", "Float"],
+                "Tärningsgenerator": ["Variables", "Operators", "Functions", "Conditions"]    
+              },
+              "Back-end": {
+                "PHP": ["Variables", "Strings", "Arrays"],
+                "SQL": ["SELECT", "UPDATE", "DELETE"]
+              }
+            }
+            window.onload = function() {
+              var subjectSel = document.getElementById("subject");
+              var topicSel = document.getElementById("topic");
+              var chapterSel = document.getElementById("chapter");
+              for (var x in subjectObject) {
+                subjectSel.options[subjectSel.options.length] = new Option(x, x);
+              }
+              subjectSel.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                chapterSel.length = 1;
+                topicSel.length = 1;
+                //display correct values
+                for (var y in subjectObject[this.value]) {
+                  topicSel.options[topicSel.options.length] = new Option(y, y);
+                }
+              }
+              topicSel.onchange = function() {
+                //empty Chapters dropdown
+                chapterSel.length = 1;
+                //display correct values
+                var z = subjectObject[subjectSel.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Welcome page</title>
@@ -16,7 +55,23 @@
         <header>
             
         </header>
-
+        <div class="sidenav">
+            <a href="#about">Hem</a>
+            <a href="#services"></a>
+            <a href="#clients">Clients</a>
+            <a href="#contact">Contact</a>
+            <form name="form1" id="form1" action="/action_page.php">
+                Spelsystem: <select name="subject" id="subject">
+                    <option value="" selected="selected">Select subject</option>
+                  </select>
+                  <br><br>
+                verktyg: <select name="topic" id="topic">
+                    <option value="" selected="selected">Please select subject first</option>
+                  </select>
+                  <br><br>
+                  <input type="submit" value="Submit">  
+                </form>
+          </div>
         <div class="welcomeBox">
             <p>
                 Welcome
